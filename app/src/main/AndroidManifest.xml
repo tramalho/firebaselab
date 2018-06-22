@@ -15,7 +15,7 @@
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id"/>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".presentation.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,14 +26,14 @@
         <!-- gerador de token unico de identificacao do dispositivo -->
         <service
             android:exported="false"
-            android:name=".FirebaseInstanceIdServiceImp">
+            android:name=".infraestructure.FirebaseInstanceIdServiceImp">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
         <!-- gerador de token unico de identificacao do dispositivo -->
-        <service android:name=".FirebaseMessagingServiceImp"
+        <service android:name=".infraestructure.FirebaseMessagingServiceImp"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
