@@ -30,12 +30,12 @@ class FirebaseMessagingServiceImp : FirebaseMessagingService() {
         val notificationInfo = retrieveData(remoteMessage)
 
         notificationInfo?.let {
-            persiste(it)
+            persist(it)
             createNotification(it.title?:getString(R.string.app_name), it.message)
         }
     }
 
-    private fun persiste(notificationInfo: NotificationInfo) {
+    private fun persist(notificationInfo: NotificationInfo) {
         LocalProvider().save(notificationInfo, this)
     }
 
@@ -53,7 +53,7 @@ class FirebaseMessagingServiceImp : FirebaseMessagingService() {
         // aqui foi utilizada uma convencao pois no payload deve existir uma
         // chave title e outra body
         data?.let {
-            return NotificationInfo(null, it["title"]
+            return NotificationInfo(null, it["0"]
                     ?: "", it["body"] ?: "")
         }
 
